@@ -1,0 +1,54 @@
+<template name="Evenement">
+	<article class="evenement {{#if inMenu}}in-menu{{/if}}">
+		<h3>{{name}}</h3>
+		<!-- données : Liste des personnes, le nom, le lieu, la date, la description, l'heure -->
+
+		{{#if editMode}}
+			{{> quickForm collection="Evenements" id=updateEvenementId type="update" doc=this autosave=true}}
+		{{else}}
+			<p>{{desc}}</p>
+			<p>
+				{{#each liste}}
+					<span class="liste">{{list}}</span>
+				{{/each}} 
+			</p>
+				<p>
+				{{#each nom}}
+					<span class="liste">{{names}}</span>
+				{{/each}} 
+			</p>
+				<p>
+				{{#each lieu}}
+					<span class="liste">{{lieus}}</span>
+				{{/each}} 
+			</p>
+				{{#each date}}
+					<span class="liste">{{dates}}</span>
+				{{/each}} 
+			</p>
+				<p>
+				{{#each heure}}
+					<span class="liste">{{heures}}</span>
+				{{/each}} 
+			</p>
+					<p>
+				{{#each description}}
+					<span class="liste">{{descriptions}}</span>
+				{{/each}} 
+			</p>
+			
+			
+			
+			
+			
+			<a href="/evenement/{{_id}}">View Details</a>
+			{{#if inMenu}}
+				<button class="btn-deny toggle-menu">Remove from Menu</button>
+			{{else}}
+			 	<button class="btn-primary toggle-menu">Add to Menu</button>
+			{{/if}}
+		{{/if}}
+			<i class="fa fa-trash"></i>
+			<i class="fa fa-pencil"></i>
+	</article>
+</template>

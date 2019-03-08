@@ -1,0 +1,1 @@
+<template name="Evenements">	{{#if $.Session.get 'newEvenement'}}		{{> newEvenement}}	{{else}}		<button class="new-evenement">New Evenement</button>	{{/if}}		<section class="evenements">		{{#if Template.subscriptionsReady}}			{{#each evenements}}				{{> Evenement}}			{{/each}}		{{else}}			<p>Loading</p>		{{/if}}	</section></template>
